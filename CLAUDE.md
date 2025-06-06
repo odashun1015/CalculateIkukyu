@@ -15,6 +15,9 @@ npm install        # Install dependencies
 npm run dev        # Start development server
 npm run build      # Build for production
 npm run preview    # Preview production build
+npm run test       # Run tests in watch mode
+npm run test:run   # Run tests once
+npm run test:ui    # Run tests with UI
 ```
 
 ## Architecture
@@ -43,6 +46,27 @@ All interfaces are in `types.ts`:
 3. Results displayed with detailed breakdown and assumptions
 4. Month-by-month calculation respecting calendar boundaries and caps
 
+## Testing
+
+### Test Coverage
+- **CalculatorService**: Comprehensive unit tests covering all calculation scenarios
+- **Date Utilities**: Tests for calendar calculations and boundary conditions  
+- **Edge Cases**: Boundary value testing, extreme inputs, and error conditions
+- **PWASG Logic**: Complete testing of postpartum support grant calculations
+
+### Test Categories
+- Basic calculation scenarios (standard 6-month leave, short/long periods)
+- Wage cap boundary testing (upper/lower limits)
+- Monthly benefit cap applications
+- PWASG eligibility and calculation logic
+- Complex date patterns (leap years, month boundaries, multi-year spans)
+- Numerical precision and edge cases
+
+### Key Test Files
+- `src/services/__tests__/CalculatorService.test.ts` - Core calculation logic
+- `src/services/__tests__/dateUtils.test.ts` - Date calculation utilities
+- `src/services/__tests__/CalculatorServiceEdgeCases.test.ts` - Edge cases and boundaries
+
 ## Important Implementation Details
 
 - Month calculations use calendar boundaries, not 30-day periods
@@ -56,4 +80,5 @@ All interfaces are in `types.ts`:
 - Vue.js 3 + TypeScript with strict configuration
 - Vite for build tooling
 - SCSS for styling with custom variables and components
+- Vitest for unit testing with comprehensive coverage
 - No external UI libraries - custom components only
