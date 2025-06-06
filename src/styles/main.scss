@@ -1,0 +1,282 @@
+@use './variables.scss' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: $slate-800;
+  background: linear-gradient(135deg, $background-gradient-from 0%, $background-gradient-to 100%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: $spacing-8 $spacing-4;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: $spacing-10;
+
+  .icon {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto $spacing-4;
+    color: $primary-color;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: $slate-800;
+    margin-bottom: $spacing-3;
+
+    @media (min-width: 640px) {
+      font-size: 3rem;
+    }
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: $slate-600;
+  }
+}
+
+.main-content {
+  background: $white;
+  padding: $spacing-6;
+  border-radius: $border-radius-xl;
+  box-shadow: $shadow-xl;
+
+  @media (min-width: 640px) {
+    padding: $spacing-8;
+  }
+}
+
+.form {
+  .form-section {
+    margin-bottom: $spacing-8;
+  }
+
+  .form-group {
+    margin-bottom: $spacing-4;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    color: $slate-800;
+    margin-bottom: $spacing-2;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"] {
+    width: 100%;
+    padding: $spacing-3;
+    border: 1px solid $slate-200;
+    border-radius: $border-radius-md;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+  }
+
+  .checkbox-group {
+    margin-bottom: $spacing-4;
+
+    .checkbox-wrapper {
+      display: flex;
+      align-items: flex-start;
+      gap: $spacing-3;
+
+      input[type="checkbox"] {
+        margin-top: 0.25rem;
+        transform: scale(1.2);
+      }
+
+      .checkbox-content {
+        flex: 1;
+
+        .checkbox-label {
+          font-weight: 600;
+          color: $slate-800;
+          margin-bottom: $spacing-2;
+        }
+
+        .checkbox-description {
+          font-size: 0.875rem;
+          color: $slate-600;
+          white-space: pre-line;
+        }
+      }
+
+      &.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+  }
+
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: $spacing-3 $spacing-8;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $white;
+    background: $primary-color;
+    border: none;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-sm;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover {
+      background: $primary-hover;
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    @media (min-width: 640px) {
+      width: auto;
+    }
+  }
+}
+
+.alert {
+  margin-top: $spacing-8;
+  padding: $spacing-4;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+
+  h3 {
+    font-weight: 700;
+    margin-bottom: $spacing-2;
+  }
+
+  p {
+    white-space: pre-line;
+  }
+
+  &.error {
+    background: $error-bg;
+    border: 1px solid $error-border;
+    color: $error-text;
+  }
+
+  &.warning {
+    background: $warning-bg;
+    border: 1px solid $warning-border;
+    color: $warning-text;
+  }
+
+  &.success {
+    background: $success-bg;
+    border: 1px solid $success-border;
+    color: $success-text;
+  }
+}
+
+.result-display {
+  margin-top: $spacing-8;
+  padding: $spacing-6;
+  background: $success-bg;
+  border: 1px solid $success-border;
+  border-radius: $border-radius-md;
+  color: $success-text;
+
+  .result-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: $spacing-4;
+  }
+
+  .result-summary {
+    display: grid;
+    gap: $spacing-4;
+    margin-bottom: $spacing-6;
+
+    @media (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .result-item {
+      .result-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: $spacing-2;
+      }
+
+      .result-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .result-details {
+    .detail-section {
+      margin-bottom: $spacing-6;
+      padding: $spacing-4;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: $border-radius-md;
+
+      .detail-title {
+        font-size: 1.125rem;
+        font-weight: 600;
+        margin-bottom: $spacing-3;
+      }
+
+      .detail-list {
+        list-style: none;
+
+        li {
+          margin-bottom: $spacing-2;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .label {
+            flex: 1;
+          }
+
+          .value {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+.disclaimer {
+  margin-top: $spacing-10;
+  padding-top: $spacing-6;
+  border-top: 1px solid $slate-200;
+  text-align: center;
+  font-size: 0.75rem;
+  color: $slate-500;
+  white-space: pre-line;
+}
+
+.footer {
+  margin-top: $spacing-12;
+  text-align: center;
+  font-size: 0.875rem;
+  color: $slate-500;
+}
