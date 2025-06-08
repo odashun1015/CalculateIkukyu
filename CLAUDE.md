@@ -1,5 +1,6 @@
 # CLAUDE.md
 以後必ず日本語で回答してください
+コミットする際の文章は必ず日本語とすること
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
